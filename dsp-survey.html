@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exelbid DSP 연동 규격 설문지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+
+            #printArea,
+            #printArea * {
+                visibility: visible;
+            }
+
+            #printArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                display: block !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        #printArea {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased pb-20">
+    <div id="printArea" class="p-10 text-slate-900">
+        <h1 class="text-2xl font-bold mb-6 border-b-2 border-slate-900 pb-2">Exelbid DSP 연동 규격 설문 응답 요약</h1>
+        <div id="printContent" class="space-y-4"></div>
+        <div class="mt-8 text-sm text-slate-500 italic">본 문서는 Exelbid DSP 연동 설문을 통해 제출된 내용을 바탕으로 생성되었습니다.</div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 pt-12">
+        <div class="mb-12 text-center">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4">Exelbid DSP 연동 규격 설문지</h1>
+            <p class="text-slate-600">성공적인 파트너십을 위해 상세 기술 규격을 입력해주시기 바랍니다.</p>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="mb-10 flex flex-wrap justify-between gap-2 px-4 border-b pb-4">
+            <div id="step-1-i" class="flex flex-col items-center min-w-[70px]">
+                <div id="step-1-circle"
+                    class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold mb-1 shadow-lg">
+                    1</div>
+                <span class="text-[10px] font-bold text-slate-900">기본 정보</span>
+            </div>
+            <div id="step-2-i" class="flex flex-col items-center min-w-[70px] opacity-40">
+                <div id="step-2-circle"
+                    class="w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-400 flex items-center justify-center font-bold mb-1">
+                    2</div>
+                <span class="text-[10px] font-bold text-slate-400">기술 부문</span>
+            </div>
+            <div id="step-3-i" class="flex flex-col items-center min-w-[70px] opacity-40">
+                <div id="step-3-circle"
+                    class="w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-400 flex items-center justify-center font-bold mb-1">
+                    3</div>
+                <span class="text-[10px] font-bold text-slate-400">거래 조건</span>
+            </div>
+            <div id="step-4-i" class="flex flex-col items-center min-w-[70px] opacity-40">
+                <div id="step-4-circle"
+                    class="w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-400 flex items-center justify-center font-bold mb-1">
+                    4</div>
+                <span class="text-[10px] font-bold text-slate-400">정산 정보</span>
+            </div>
+        </div>
+
+        <form id="dspForm" class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+            <!-- Section 1: 기업 정보 -->
+            <div id="section-1" class="form-section active p-8 md:p-12 space-y-8">
+                <h2 class="text-xl font-bold flex items-center gap-2 border-b pb-4 text-slate-800"><span
+                        class="w-2 h-6 bg-slate-900 rounded-sm"></span>1. 기본 정보 (자동 연동을 원하시면 정확히 입력 부탁드립니다)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-700">
+                    <div class="space-y-2"><label class="text-sm font-semibold">1.1 회사명</label><input type="text"
+                            name="1.1_회사명" required class="w-full px-4 py-3 rounded-lg border border-slate-200"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">1.2 홈페이지</label><input type="url"
+                            name="1.2_홈페이지" required class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">1.3 전화번호</label><input type="tel"
+                            name="1.3_전화번호" required class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">1.4 주소</label><input type="text"
+                            name="1.4_주소" required class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">1.5 사업자등록번호</label><input type="text"
+                            name="1.5_사업자번호" required class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">1.6 대표이사 성함</label><input type="text"
+                            name="1.6_대표이사" required class="w-full px-4 py-3 border rounded-lg"></div>
+                </div>
+                <div class="pt-6 border-t mt-6">
+                    <h3 class="font-bold text-slate-800 mb-4">대표 및 실무 담당자 상세</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <input type="text" name="1.7_직함" placeholder="대표담당자 직함"
+                            class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="text" name="1.7_이름" placeholder="성함" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="tel" name="1.7_연락처" placeholder="전화번호" class="px-4 py-2 border rounded-lg text-sm">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <input type="text" name="1.8_직함" placeholder="실무담당자 직함"
+                            class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="text" name="1.8_이름" placeholder="성함" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="tel" name="1.8_연락처" placeholder="전화번호" class="px-4 py-2 border rounded-lg text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: 기술 부문 -->
+            <div id="section-2" class="form-section p-8 md:p-12 space-y-8">
+                <h2 class="text-xl font-bold flex items-center gap-2 border-b pb-4 text-slate-800"><span
+                        class="w-2 h-6 bg-slate-900 rounded-sm"></span>2. 기술 부문</h2>
+                <div class="space-y-6 text-slate-700">
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.1 지원 OpenRTB 방식입니까?</label><input
+                            type="text" name="2.1_RTB_지원여부" class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.2 만약 지원 OpenRTB가 지원하지 않는다면 어떤 방식 가이드
+                            (예. Ad tag/ S2S, API 등) 어떤 플랫폼 (SSP / Ad Network)에 프로그램틱 방식입니까?</label>
+                        <textarea name="2.2_비RTB_방식" rows="2" class="w-full px-4 py-3 border rounded-lg"
+                            placeholder="예) Ad tag / S2S 등 상세 기술"></textarea>
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.3 사용하고 있는 OpenRTB 버전은 무엇입니까? (Ex. 2.3
+                            / 2.5)</label><input type="text" name="2.3_RTB_버전"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.4 지원하고 있는 Native 및 VAST 규격은 무엇입니까? (예.
+                            Native 1.0 / VAST 3.0)</label><input type="text" name="2.4_규격_버전"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.5 서버 운영 및 클라우드 정보 (중요: 클라이언트 정보와 인스턴스
+                            위치 및 지역 기재)</label>
+                        <div class="px-4 py-2 bg-slate-50 text-xs text-slate-500 mb-2">1. 예) AWS / 위치 : Seoul</div>
+                        <textarea name="2.5_서버_정보" rows="2" class="w-full px-4 py-3 border rounded-lg"></textarea>
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.6 ExelBid로부터 월별/일별로 희망하는 초기 QPS는
+                            얼마입니까?</label><input type="text" name="2.6_희망_QPS"
+                            class="w-full px-4 py-3 border rounded-lg" placeholder="숫자 및 단위 기입"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.7 Deal ID 연동이 가능하십니까?</label><input
+                            type="text" name="2.7_Deal_ID" class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.8 지원 가능한 거래 및 노출 시간대 (예.
+                            24시간)</label><input type="text" name="2.8_노출_시간대"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.9 지원하는 경매 방식(auction type)을 적어주세요. (예.
+                            1st price, 2nd price, etc.)</label><input type="text" name="2.9_경매_방식"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.10 낙찰 통지 burl 연동이
+                            가능하십니까?</label><input type="text" name="2.10_burl"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.11 S2S 방식의 이벤트 트래킹 연동이
+                            가능하십니까?</label><input type="text" name="2.11_S2S"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.12 독자 플랫폼을 가지고 계십니까? 플랫폼 내 별도 ad tech
+                            서비스를 제공하고 있지 않습니까?</label><input type="text" name="2.12_독자플랫폼"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.13 응답 시 압축 인코딩 방식을 사용하십니까? (예. gzip,
+                            deflate, bz)</label><input type="text" name="2.13_압축_인코딩"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.14 ads.txt 및 app-ads.txt 연동을 권장하고
+                            계십니까?</label><input type="text" name="2.14_ads_txt"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">2.15 리포트 혹은 하트비트 API를 지원하십니까? (문서 첨부
+                            권장)</label><input type="text" name="2.15_API_지원" class="w-full px-4 py-3 border rounded-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: 마케팅 및 거래 가이드 -->
+            <div id="section-3" class="form-section p-8 md:p-12 space-y-8">
+                <h2 class="text-xl font-bold flex items-center gap-2 border-b pb-4 text-slate-800"><span
+                        class="w-2 h-6 bg-slate-900 rounded-sm"></span>3. 마케팅 및 거래 가이드</h2>
+                <div class="space-y-6 text-slate-700">
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.1 주요 제휴 SSP / Ad Exchange가 있다면 적어주세요.
+                            (순위순)</label><textarea name="3.1_제휴_SSP" rows="2"
+                            class="w-full px-4 py-3 border rounded-lg"></textarea></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.2 희망하는 인벤토리 및 디바이스 유형별 비중 가이드 (예.
+                            Mobile App Native 50%, Mobile App Banner 20% 등)</label>
+                        <div class="px-4 py-2 bg-slate-50 text-[10px] text-slate-500 mb-2">대상: Mobile App Native /
+                            Mobile App Banner / Mobile Web Video / Mobile App Video / TV / PC Web Banner / PC Web Video
+                        </div>
+                        <textarea name="3.2_인벤토리_비중" rows="3" class="w-full px-4 py-3 border rounded-lg"
+                            placeholder="예) 1. Mobile App Native (50%) ..."></textarea>
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.3 월간 예상 거래 트래픽 규모</label><input
+                            type="text" name="3.3_트래픽_규모" class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.4 Web 도메인 환경에서 쿠키 싱크 연동이
+                            필요합니까?</label><input type="text" name="3.4_쿠키싱크" class="w-full px-4 py-3 border rounded-lg">
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.5 MRAID를 지원하십니까?</label><input
+                            type="text" name="3.5_MRAID" class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.6 Video 규격 내 VPAID를
+                            지원하십니까?</label><input type="text" name="3.6_VPAID"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.7 주요 거래 희망 타겟 국가 (예. 한국, 일본,
+                            대만)</label><input type="text" name="3.7_타겟국가" class="w-full px-4 py-3 border rounded-lg">
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.8 주로 거래하고 있는 광고주 업종 카테고리 (예. 하이퍼캐주얼 /
+                            게임)</label><input type="text" name="3.8_광고주_업종" class="w-full px-4 py-3 border rounded-lg">
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">3.9 거래 시 개인정보 전송 및 관련 정책은
+                            무엇입니까?</label><input type="text" name="3.9_개인정보_정책"
+                            class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2 pt-4 border-t"><label class="text-sm font-semibold">3.10 주요 캠페인 실적 KPI 비중 (합계
+                            100%)</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-2 border px-4 py-2 rounded-lg text-xs"><span>UA (User
+                                    Acquisition):</span><input type="text" name="3.10_KPI_UA" placeholder="%"
+                                    class="w-12 border-none text-right">%</div>
+                            <div class="flex items-center gap-2 border px-4 py-2 rounded-lg text-xs">
+                                <span>Retargeting:</span><input type="text" name="3.10_KPI_Retargeting" placeholder="%"
+                                    class="w-12 border-none text-right">%</div>
+                            <div class="flex items-center gap-2 border px-4 py-2 rounded-lg text-xs">
+                                <span>Branding:</span><input type="text" name="3.10_KPI_Branding" placeholder="%"
+                                    class="w-12 border-none text-right">%</div>
+                            <div class="flex items-center gap-2 border px-4 py-2 rounded-lg text-xs">
+                                <span>기타:</span><input type="text" name="3.10_KPI_기타" class="w-20 border-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: 정산 및 추가 정보 -->
+            <div id="section-4" class="form-section p-8 md:p-12 space-y-8">
+                <h2 class="text-xl font-bold flex items-center gap-2 border-b pb-4 text-slate-800"><span
+                        class="w-2 h-6 bg-slate-900 rounded-sm"></span>4. 정산 및 담당자 정보</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-700">
+                    <div class="space-y-2"><label class="text-sm font-semibold">4.1 정산 주기 (예. 30일)</label><input
+                            type="text" name="4.1_정산주기" class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">4.2 정산 기준 시간대 (예. UTC /
+                            KST)</label><input type="text" name="4.2_시간대" class="w-full px-4 py-3 border rounded-lg">
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">4.3 정산 기준 통화 (예. USD /
+                            KRW)</label><input type="text" name="4.3_통화" class="w-full px-4 py-3 border rounded-lg">
+                    </div>
+                    <div class="space-y-2"><label class="text-sm font-semibold">4.4 별도 정산 담당자 유무 및 직함</label><input
+                            type="text" name="4.4_정산담당_직함" class="w-full px-4 py-3 border rounded-lg"></div>
+                    <div class="space-y-2 md:col-span-2"><label class="text-sm font-semibold">4.5 현재 연간 규모 및 거래 중인 타 업체
+                            이름 (선택)</label><textarea name="4.5_거래업체_선택" rows="2"
+                            class="w-full px-4 py-3 border rounded-lg"></textarea></div>
+                </div>
+                <!-- 5. 추가 거래처 담당자 리스트 -->
+                <div class="pt-8 border-t space-y-4">
+                    <h3 class="font-bold">5. 추가 거래처 담당자 리스트 (해당 체크 시)</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <input type="text" name="5_추가1_회사" placeholder="회사"
+                            class="px-2 py-2 border rounded-lg text-[10px]">
+                        <input type="text" name="5_추가1_직함" placeholder="직할"
+                            class="px-2 py-2 border rounded-lg text-[10px]">
+                        <input type="text" name="5_추가1_이름" placeholder="이름"
+                            class="px-2 py-2 border rounded-lg text-[10px]">
+                    </div>
+                    <div id="submitResultArea"
+                        class="hidden bg-green-50 border border-green-100 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 mt-8">
+                        <div class="text-sm text-green-800 font-bold">작성이 완료되었습니다! 요약본을 확인하고 인쇄하세요.</div>
+                        <button type="button" onclick="preparePrint()"
+                            class="px-6 py-2 bg-slate-900 text-white rounded-lg font-bold hover:bg-black transition-all">🖨️
+                            인쇄/PDF 저장</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Buttons -->
+            <div class="bg-slate-50 p-6 flex justify-between gap-4 border-t">
+                <button type="button" id="prevBtn"
+                    class="px-6 py-3 rounded-lg font-semibold text-slate-600 hover:bg-slate-200 transition-all invisible">이전
+                    단계</button>
+                <button type="button" id="nextBtn"
+                    class="px-8 py-3 bg-slate-900 text-white rounded-lg font-bold hover:bg-black transition-all">다음
+                    단계</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+        const form = document.getElementById('dspForm');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitResultArea = document.getElementById('submitResultArea');
+
+        function updateUI() {
+            document.querySelectorAll('.form-section').forEach((s, i) => s.classList.toggle('active', i + 1 === currentStep));
+            for (let i = 1; i <= totalSteps; i++) {
+                const item = document.getElementById(`step-${i}-i`);
+                const circle = document.getElementById(`step-${i}-circle`);
+                const text = item.querySelector('span');
+                if (i < currentStep) {
+                    item.style.opacity = '1';
+                    circle.className = 'w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold mb-1 shadow-sm';
+                    circle.innerHTML = '✓';
+                    text.className = 'text-[10px] font-bold text-green-600';
+                } else if (i === currentStep) {
+                    item.style.opacity = '1';
+                    circle.className = 'w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold mb-1 shadow-md';
+                    circle.innerHTML = i;
+                    text.className = 'text-[10px] font-bold text-slate-900';
+                } else {
+                    item.style.opacity = '0.4';
+                    circle.className = 'w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-400 flex items-center justify-center font-bold mb-1';
+                    circle.innerHTML = i;
+                    text.className = 'text-[10px] font-bold text-slate-400';
+                }
+            }
+            prevBtn.classList.toggle('invisible', currentStep === 1);
+            nextBtn.innerText = currentStep === totalSteps ? '설문 완료 및 제출' : '다음 단계';
+        }
+
+        function preparePrint() {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            let html = '<table style="width:100%; border-collapse: collapse; border: 1px solid #cbd5e1; font-family: sans-serif; font-size: 11px;">';
+            for (const [key, value] of Object.entries(data)) {
+                if (key === 'survey_type') continue;
+                html += `<tr><th style="border: 1px solid #cbd5e1; background-color: #f8fafc; padding: 8px; text-align: left; width: 35%; color: #334155;">${key}</th><td style="border: 1px solid #cbd5e1; padding: 8px; color: #0f172a; white-space: pre-wrap;">${value || '-'}</td></tr>`;
+            }
+            html += '</table>';
+            document.getElementById('printContent').innerHTML = html;
+            setTimeout(() => { window.print(); }, 300);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                currentStep++; updateUI(); window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzJN8UVJDJ_YFpu3rKw5dEFB254vtCYl50rwroOellHjFsXPmCAhQk4cCapz2eHUJ1eUQ/exec';
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                data.survey_type = 'DSP';
+                nextBtn.disabled = true; nextBtn.innerText = '제출 중...';
+                fetch(WEB_APP_URL, {
+                    method: 'POST', mode: 'no-cors', cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                }).then(() => {
+                    alert('성공적으로 제출되었습니다!');
+                    nextBtn.innerText = '제출 완료 (수정 가능)'; nextBtn.disabled = false;
+                    submitResultArea.classList.remove('hidden');
+                }).catch(e => {
+                    console.error(e); alert('오류 발생. 다시 시도해 주세요.');
+                    nextBtn.disabled = false; nextBtn.innerText = '설문 완료 및 제출';
+                });
+            }
+        });
+
+        prevBtn.addEventListener('click', () => { if (currentStep > 1) { currentStep--; updateUI(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
+    </script>
+</body>
+
+</html>
